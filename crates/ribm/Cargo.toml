@@ -1,0 +1,15 @@
+[package]
+name = "ribm"
+version = { workspace = true }
+edition = { workspace = true }
+categories = { workspace = true }
+keywords = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+readme = "README.md"
+description = { workspace = true }
+repository = "https://github.com/devmcsam/ribm/crates/ribm"
+homepage = "https://github.com/devmcsam/ribm/crates/ribm"
+publish = true
+
+[dependencies]
