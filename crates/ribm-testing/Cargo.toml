@@ -13,3 +13,6 @@ homepage = "https://github.com/devmcsam/ribm/crates/ribm-testing"
 publish = false
 
 [dependencies]
+
+[lints]
+workspace = true

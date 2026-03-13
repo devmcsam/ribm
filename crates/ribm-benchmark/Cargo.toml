@@ -13,3 +13,6 @@ homepage = "https://github.com/devmcsam/ribm/crates/ribm-benchmark"
 publish = false
 
 [dependencies]
+
+[lints]
+workspace = true
