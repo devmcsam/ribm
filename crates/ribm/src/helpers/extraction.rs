@@ -1,11 +1,14 @@
 //! Helper functions for extracting and classifying IEEE-754 floating-point
 //! numbers at the bit level.
 
+use crate::helpers::{DBL_EXP_SUBNORMAL, FLT_EXP_SUBNORMAL};
 use super::constants::{DBL_EXP_BIAS, DBL_EXP_ZERO_SUBNORMAL, DBL_HIDDEN_BIT, DBL_MASK_ABS,
                        DBL_MASK_EXP, DBL_MASK_FRAC, DBL_MASK_SIGN, DBL_SHIFT_EXP, DBL_SHIFT_SIGN,
                        FLT_EXP_BIAS, FLT_EXP_ZERO_SUBNORMAL, FLT_HIDDEN_BIT, FLT_MASK_ABS,
                        FLT_MASK_EXP, FLT_MASK_FRAC, FLT_MASK_SIGN, FLT_SHIFT_EXP, FLT_SHIFT_SIGN,
 };
+use super::normalization::{f32_normalize_subnormal, f64_normalize_subnormal};
+use super::classification::{f32_is_zero_from_bits, f64_is_zero_from_bits};
 
 /// Extract the sign bit (0 or 1) from raw f32 bits.
 pub const fn f32_extract_sign_from_bits(bits: u32) -> u32 {
@@ -29,14 +32,21 @@ pub const fn f32_extract_biased_exponent(num: f32) -> u32 {
 
 /// Extract the unbiased exponent (biased - 127) from raw f32 bits.
 ///
-/// Note: For subnormals this returns -127, which is NOT the effective exponent
-/// per IEEE 754 (that would be -126). Use the normalization helpers if you
-/// need the true exponent for subnormals.
+/// For normal numbers, this returns the standard (biased - 127).
+/// For subnormal numbers, it performs normalization and returns the true
+/// effective exponent.
 pub const fn f32_extract_unbiased_exponent_from_bits(bits: u32) -> i32 {
-    // TODO: subnormal normalization -- adjust exponent to -126 and account
-    //       for the leading-zero count in the significand.
     let exp = f32_extract_biased_exponent_from_bits(bits);
-    exp as i32 - FLT_EXP_BIAS as i32
+    if exp == FLT_EXP_ZERO_SUBNORMAL {
+        if f32_is_zero_from_bits(bits) {
+            return FLT_EXP_SUBNORMAL;
+        }
+        let frac = f32_extract_fraction_from_bits(bits);
+        let (_, adj) = f32_normalize_subnormal(frac);
+        FLT_EXP_SUBNORMAL + adj
+    } else {
+        exp as i32 - FLT_EXP_BIAS as i32
+    }
 }
 
 /// Extract the unbiased exponent (biased - 127) from an f32.
@@ -111,14 +121,21 @@ pub const fn f64_extract_biased_exponent(num: f64) -> u64 {
 
 /// Extract the unbiased exponent (biased - 1023) from raw f64 bits.
 ///
-/// Note: For subnormals this returns -1023, which is NOT the effective exponent
-/// per IEEE 754 (that would be -1022). Use the normalization helpers if you
-/// need the true exponent for subnormals.
+/// For normal numbers, this returns the standard (biased - 1023).
+/// For subnormal numbers, it performs normalization and returns the true
+/// effective exponent.
 pub const fn f64_extract_unbiased_exponent_from_bits(bits: u64) -> i32 {
-    // TODO: subnormal normalization -- adjust exponent to -1022 and account
-    //       for the leading-zero count in the significand.
     let exp = f64_extract_biased_exponent_from_bits(bits);
-    exp as i32 - DBL_EXP_BIAS as i32
+    if exp == DBL_EXP_ZERO_SUBNORMAL {
+        if f64_is_zero_from_bits(bits) {
+            return DBL_EXP_SUBNORMAL;
+        }
+        let frac = f64_extract_fraction_from_bits(bits);
+        let (_, adj) = f64_normalize_subnormal(frac);
+        DBL_EXP_SUBNORMAL + adj
+    } else {
+        exp as i32 - DBL_EXP_BIAS as i32
+    }
 }
 
 /// Extract the unbiased exponent (biased - 1023) from an f64.
