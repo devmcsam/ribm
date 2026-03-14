@@ -195,20 +195,6 @@ pub const fn f32_compose_bits(sign: u32, biased_exp: u32, fraction: u32) -> u32 
     (sign << FLT_SHIFT_SIGN) | (biased_exp << FLT_SHIFT_EXP) | (fraction & FLT_MASK_FRAC)
 }
 
-/// Normalize a subnormal f32 by shifting the significand left until the
-/// hidden bit is in position, adjusting the exponent accordingly.
-///
-/// Returns (normalized_fraction, exponent_adjustment) where
-/// exponent_adjustment is a negative value to add to the exponent.
-///
-/// Panics: Debug-asserts that the input fraction is non-zero.
-// TODO: implement subnormal normalization for f32
-pub const fn f32_normalize_subnormal(_frac: u32) -> (u32, i32) {
-    // TODO: normalize subnormal f32 -- shift fraction left until bit 23 is set,
-    //       counting shifts as negative exponent adjustment.
-    panic!("f32_normalize_subnormal: not yet implemented");
-}
-
 /// Extract the sign bit (0 or 1) from raw f64 bits.
 pub const fn f64_extract_sign_from_bits(bits: u64) -> u64 {
     bits >> DBL_SHIFT_SIGN
@@ -389,18 +375,4 @@ pub const fn f64_copysign_bits(magnitude_bits: u64, sign_bits: u64) -> u64 {
 /// fraction field. No validation is performed.
 pub const fn f64_compose_bits(sign: u64, biased_exp: u64, fraction: u64) -> u64 {
     (sign << DBL_SHIFT_SIGN) | (biased_exp << DBL_SHIFT_EXP) | (fraction & DBL_MASK_FRAC)
-}
-
-/// Normalize a subnormal f64 by shifting the significand left until the
-/// hidden bit is in position, adjusting the exponent accordingly.
-///
-/// Returns (normalized_fraction, exponent_adjustment) where
-/// exponent_adjustment is a negative value to add to the exponent.
-///
-/// Panics: Debug-asserts that the input fraction is non-zero.
-// TODO: implement subnormal normalization for f64
-pub const fn f64_normalize_subnormal(_frac: u64) -> (u64, i32) {
-    // TODO: normalize subnormal f64 -- shift fraction left until bit 52 is set,
-    //       counting shifts as negative exponent adjustment.
-    panic!("f64_normalize_subnormal: not yet implemented");
 }
