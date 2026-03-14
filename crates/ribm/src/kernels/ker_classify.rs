@@ -9,12 +9,18 @@ use crate::helpers::constants::{
 // When it does not effect performance, it is better to use the classify functions.
 // However in this case it does affect performance.
 
+/// The category of a floating point number.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum FpCategory {
+    /// A floating point number that is within the normal range.
     Normal,
+    /// A floating point number that is too small to be represented as a normal number.
     Subnormal,
+    /// A floating point number that is zero.
     Zero,
+    /// A non-finite floating point number.
     Infinite,
+    /// A floating point number that can not be represented as a number.
     Nan,
 }
 
@@ -23,6 +29,7 @@ pub enum FpCategory {
 // branch predictors will predict normal correctly nearly every time.
 // Also if LLVM decides that branchless is faster on a certain architecture it will optimize it to that anyway.
 
+/// Classifies a floating point number based on its bit pattern.
 pub const fn ker_f32_classify_from_bits(bits: u32) -> FpCategory {
     let abs_bits = bits & FLT_MASK_ABS;
 
@@ -39,10 +46,12 @@ pub const fn ker_f32_classify_from_bits(bits: u32) -> FpCategory {
     }
 }
 
+/// Classifies a floating point number based on its bit pattern.
 pub const fn ker_f32_classify(num: f32) -> FpCategory {
     ker_f32_classify_from_bits(num.to_bits())
 }
 
+/// Classifies a floating point number based on its bit pattern.
 pub const fn ker_f64_classify_from_bits(bits: u64) -> FpCategory {
     let abs_bits = bits & DBL_MASK_ABS;
 
@@ -59,6 +68,7 @@ pub const fn ker_f64_classify_from_bits(bits: u64) -> FpCategory {
     }
 }
 
+/// Classifies a floating point number based on its bit pattern.
 pub const fn ker_f64_classify(num: f64) -> FpCategory {
     ker_f64_classify_from_bits(num.to_bits())
 }
