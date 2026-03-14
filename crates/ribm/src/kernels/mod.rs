@@ -1,0 +1,5 @@
+//! The kernels for functions in the Ribm library
+//!
+//! We define a kernel as the core happy path algorithm,
+//! this means that it assumes that inputs are within range, valid, and thus it performs little to
+//! no branching.
