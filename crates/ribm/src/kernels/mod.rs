@@ -5,3 +5,4 @@
 //! no branching.
 
 pub mod ker_copysign;
+pub use ker_copysign::*;

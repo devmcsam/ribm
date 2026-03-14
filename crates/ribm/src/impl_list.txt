@@ -3,7 +3,7 @@ Floating Point Math Library Function Groups
 This is roughly in the order in which they should be implemented but not required.
 
 1. Bit Utilities and Sign Operations
-1.1 copysign [ ]
+1.1 copysign [X]
 1.2 signbit [ ]
 1.3 fpclassify [ ]
 1.4 is_nan [ ]
