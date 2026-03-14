@@ -84,6 +84,17 @@ pub const fn f32_extract_mantissa(num: f32) -> u32 {
     f32_extract_mantissa_from_bits(num.to_bits())
 }
 
+/// Extract the bit pattern of the magnitude (non-sign, non-hidden) from raw
+/// f32 bits.
+pub const fn f32_extract_magnitude_from_bits(bits: u32) -> u32 {
+    bits & !FLT_MASK_SIGN
+}
+
+/// Extract the bit pattern of the magnitude (non-sign, non-hidden) from an f32.
+pub const fn f32_extract_magnitude(num: f32) -> u32 {
+    f32_extract_magnitude_from_bits(num.to_bits())
+}
+
 /// Clear the sign bit, returning the absolute-value bit pattern.
 pub const fn f32_abs_bits(bits: u32) -> u32 {
     bits & FLT_MASK_ABS
@@ -92,11 +103,6 @@ pub const fn f32_abs_bits(bits: u32) -> u32 {
 /// Flip the sign bit.
 pub const fn f32_negate_bits(bits: u32) -> u32 {
     bits ^ FLT_MASK_SIGN
-}
-
-/// Copy the sign of sign_bits onto magnitude_bits.
-pub const fn f32_copysign_bits(magnitude_bits: u32, sign_bits: u32) -> u32 {
-    (magnitude_bits & FLT_MASK_ABS) | (sign_bits & FLT_MASK_SIGN)
 }
 
 /// Extract the sign bit (0 or 1) from raw f64 bits.
@@ -173,6 +179,17 @@ pub const fn f64_extract_mantissa(num: f64) -> u64 {
     f64_extract_mantissa_from_bits(num.to_bits())
 }
 
+/// Extract the bit pattern of the magnitude (non-sign, non-hidden) from raw
+/// f64 bits.
+pub const fn f64_extract_magnitude_from_bits(bits: u64) -> u64 {
+    bits & !DBL_MASK_SIGN
+}
+
+/// Extract the bit pattern of the magnitude (non-sign, non-hidden) from an f64.
+pub const fn f64_extract_magnitude(num: f64) -> u64 {
+    f64_extract_magnitude_from_bits(num.to_bits())
+}
+
 /// Clear the sign bit, returning the absolute-value bit pattern.
 pub const fn f64_abs_bits(bits: u64) -> u64 {
     bits & DBL_MASK_ABS
@@ -181,9 +198,4 @@ pub const fn f64_abs_bits(bits: u64) -> u64 {
 /// Flip the sign bit.
 pub const fn f64_negate_bits(bits: u64) -> u64 {
     bits ^ DBL_MASK_SIGN
-}
-
-/// Copy the sign of sign_bits onto magnitude_bits.
-pub const fn f64_copysign_bits(magnitude_bits: u64, sign_bits: u64) -> u64 {
-    (magnitude_bits & DBL_MASK_ABS) | (sign_bits & DBL_MASK_SIGN)
 }

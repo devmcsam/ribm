@@ -3,3 +3,5 @@
 //! We define a kernel as the core happy path algorithm,
 //! this means that it assumes that inputs are within range, valid, and thus it performs little to
 //! no branching.
+
+pub mod ker_copysign;
