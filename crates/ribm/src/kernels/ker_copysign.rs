@@ -1,7 +1,7 @@
 //! The kernel for the copysign function for f32 and f64.
 
-use crate::helpers::extraction::*;
-use crate::helpers::constants::*;
+use crate::helpers::extraction::{f32_extract_magnitude_from_bits, f32_extract_sign_from_bits,
+                                 f64_extract_magnitude_from_bits, f64_extract_sign_from_bits};
 
 pub const fn ker_f64_copysign_bits(first: u64, second: u64) -> u64 {
     let mut num = f64_extract_magnitude_from_bits(first);
