@@ -6,6 +6,8 @@
 
 pub mod ker_copysign;
 pub mod ker_signbit;
+pub mod ker_classify;
 
 pub use ker_copysign::*;
 pub use ker_signbit::*;
+pub use ker_classify::*;
