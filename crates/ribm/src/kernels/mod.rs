@@ -10,6 +10,7 @@ pub mod ker_classify;
 pub mod ker_is_nan;
 pub mod ker_is_infinte;
 pub mod ker_is_finite;
+pub mod ker_is_normal;
 
 pub use ker_copysign::*;
 pub use ker_signbit::*;
@@ -17,3 +18,4 @@ pub use ker_classify::*;
 pub use ker_is_nan::*;
 pub use ker_is_infinte::*;
 pub use ker_is_finite::*;
+pub use ker_is_normal::*;

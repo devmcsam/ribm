@@ -9,7 +9,7 @@ This is roughly in the order in which they should be implemented but not require
 1.4 is_nan [X]
 1.5 is_infinite [X]
 1.6 is_finite [X]
-1.7 is_normal [ ]
+1.7 is_normal [X]
 
 2. Basic IEEE Arithmetic (Wrappers or Software Fallbacks)
 2.1 add [ ]
