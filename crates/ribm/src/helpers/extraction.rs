@@ -89,12 +89,6 @@ pub const fn f32_copysign_bits(magnitude_bits: u32, sign_bits: u32) -> u32 {
     (magnitude_bits & FLT_MASK_ABS) | (sign_bits & FLT_MASK_SIGN)
 }
 
-/// Compose an f32 bit pattern from its sign (0 or 1), biased exponent, and
-/// fraction field. No validation is performed.
-pub const fn f32_compose_bits(sign: u32, biased_exp: u32, fraction: u32) -> u32 {
-    (sign << FLT_SHIFT_SIGN) | (biased_exp << FLT_SHIFT_EXP) | (fraction & FLT_MASK_FRAC)
-}
-
 /// Extract the sign bit (0 or 1) from raw f64 bits.
 pub const fn f64_extract_sign_from_bits(bits: u64) -> u64 {
     bits >> DBL_SHIFT_SIGN
@@ -175,10 +169,4 @@ pub const fn f64_negate_bits(bits: u64) -> u64 {
 /// Copy the sign of sign_bits onto magnitude_bits.
 pub const fn f64_copysign_bits(magnitude_bits: u64, sign_bits: u64) -> u64 {
     (magnitude_bits & DBL_MASK_ABS) | (sign_bits & DBL_MASK_SIGN)
-}
-
-/// Compose an f64 bit pattern from its sign (0 or 1), biased exponent, and
-/// fraction field. No validation is performed.
-pub const fn f64_compose_bits(sign: u64, biased_exp: u64, fraction: u64) -> u64 {
-    (sign << DBL_SHIFT_SIGN) | (biased_exp << DBL_SHIFT_EXP) | (fraction & DBL_MASK_FRAC)
 }
