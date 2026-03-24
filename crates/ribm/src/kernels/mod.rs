@@ -12,6 +12,7 @@ pub mod ker_is_infinte;
 pub mod ker_is_finite;
 pub mod ker_is_normal;
 pub mod ker_scalbn;
+pub mod ker_ldexp;
 
 pub use ker_copysign::*;
 pub use ker_signbit::*;
@@ -21,3 +22,4 @@ pub use ker_is_infinte::*;
 pub use ker_is_finite::*;
 pub use ker_is_normal::*;
 pub use ker_scalbn::*;
+pub use ker_ldexp::*;

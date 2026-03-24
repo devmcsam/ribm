@@ -35,7 +35,7 @@ This is roughly in the order in which they should be implemented but not require
 
 4. Scaling and Decomposition
 4.1 scalbn [X]
-4.2 ldexp (scaling by powers of 2) [ ]
+4.2 ldexp (scaling by powers of 2) [X]
 4.3 frexp (decompose into mantissa and exponent) [ ]
 4.4 logb [ ]
 4.5 ilogb [ ]
