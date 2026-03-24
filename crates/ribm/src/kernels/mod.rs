@@ -14,6 +14,7 @@ pub mod ker_is_normal;
 pub mod ker_scalbn;
 pub mod ker_ldexp;
 pub mod ker_frexp;
+pub mod ker_logb;
 
 pub use ker_copysign::*;
 pub use ker_signbit::*;
