@@ -4,7 +4,7 @@ members = [
     "crates/ribm-testing",
     "crates/ribm-benchmark"
 ]
-resolver = "2"
+resolver = "3"
 
 [workspace.package]
 edition = "2024"
