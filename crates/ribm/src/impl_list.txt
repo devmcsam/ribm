@@ -21,7 +21,7 @@ This is roughly in the order in which they should be implemented but not require
 2.6 fma [X]
 
 3. Rounding and Integer Conversion
-3.1 floor [ ]
+3.1 floor [X]
 3.2 ceil [ ]
 3.3 trunc [ ]
 3.4 round [ ]

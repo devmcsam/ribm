@@ -16,6 +16,7 @@ pub mod ker_ldexp;
 pub mod ker_frexp;
 pub mod ker_logb;
 pub mod ker_ilogb;
+pub mod ker_floor;
 
 pub use ker_copysign::*;
 pub use ker_signbit::*;
@@ -29,3 +30,4 @@ pub use ker_ldexp::*;
 pub use ker_frexp::*;
 pub use ker_logb::*;
 pub use ker_ilogb::*;
+pub use ker_floor::*;

@@ -218,85 +218,85 @@ pub const DBL_HALF: u64 = 0x3fe0_0000_0000_0000;
 pub const DBL_TWO: u64 = 0x4000_0000_0000_0000;
 
 /// PI
-pub const PI: f64 = 3.14159265358979323846264338327950288_f64;
+pub const PI: f64 = core::f64::consts::PI;
 
 /// PI / 2
-pub const FRAC_PI_2: f64 = 1.57079632679489661923132169163975144_f64;
+pub const FRAC_PI_2: f64 = core::f64::consts::FRAC_PI_2;
 
 /// PI / 4
-pub const FRAC_PI_4: f64 = 0.785398163397448309615660845819875721_f64;
+pub const FRAC_PI_4: f64 = core::f64::consts::FRAC_PI_4;
 
 /// 1 / PI
-pub const FRAC_1_PI: f64 = 0.318309886183790671537767526745028724_f64;
+pub const FRAC_1_PI: f64 = core::f64::consts::FRAC_1_PI;
 
 /// 2 / PI
-pub const FRAC_2_PI: f64 = 0.636619772367581343075535053490057448_f64;
+pub const FRAC_2_PI: f64 = core::f64::consts::FRAC_2_PI;
 
 /// 2 / sqrt(PI)
-pub const FRAC_2_SQRT_PI: f64 = 1.12837916709551257389615890312154517_f64;
+pub const FRAC_2_SQRT_PI: f64 = core::f64::consts::FRAC_2_SQRT_PI;
 
 /// sqrt(2)
-pub const SQRT_2: f64 = 1.41421356237309504880168872420969808_f64;
+pub const SQRT_2: f64 = core::f64::consts::SQRT_2;
 
 /// 1 / sqrt(2)  (= sqrt(2) / 2)
-pub const FRAC_1_SQRT_2: f64 = 0.707106781186547524400844362104849039_f64;
+pub const FRAC_1_SQRT_2: f64 = core::f64::consts::FRAC_1_SQRT_2;
 
 /// e  (Euler's number)
-pub const E: f64 = 2.71828182845904523536028747135266250_f64;
+pub const E: f64 = core::f64::consts::E;
 
 /// log2(e)
-pub const LOG2_E: f64 = 1.44269504088896340735992468100189214_f64;
+pub const LOG2_E: f64 = core::f64::consts::LOG2_E;
 
 /// log10(e)
-pub const LOG10_E: f64 = 0.434294481903251827651128918916605082_f64;
+pub const LOG10_E: f64 = core::f64::consts::LOG10_E;
 
 /// ln(2)
-pub const LN_2: f64 = 0.693147180559945309417232121458176568_f64;
+pub const LN_2: f64 = core::f64::consts::LN_2;
 
 /// ln(10)
-pub const LN_10: f64 = 2.30258509299404568401799145468436421_f64;
+pub const LN_10: f64 = core::f64::consts::LN_10;
 
 /// log10(2)
-pub const LOG10_2: f64 = 0.301029995663981195213738894947040750_f64;
+pub const LOG10_2: f64 = core::f64::consts::LOG10_2;
 
 /// log2(10)
-pub const LOG2_10: f64 = 3.32192809488736234787031942948939018_f64;
+pub const LOG2_10: f64 = core::f64::consts::LOG2_10;
 
 /// PI (f32)
-pub const PI_F32: f32 = 3.14159265358979323846_f32;
+pub const PI_F32: f32 = core::f32::consts::PI;
 
 /// PI / 2 (f32)
-pub const FRAC_PI_2_F32: f32 = 1.57079632679489661923_f32;
+pub const FRAC_PI_2_F32: f32 = core::f32::consts::FRAC_PI_2;
 
 /// PI / 4 (f32)
-pub const FRAC_PI_4_F32: f32 = 0.785398163397448309616_f32;
+pub const FRAC_PI_4_F32: f32 = core::f32::consts::FRAC_PI_4;
 
 /// 1 / PI (f32)
-pub const FRAC_1_PI_F32: f32 = 0.318309886183790671538_f32;
+pub const FRAC_1_PI_F32: f32 = core::f32::consts::FRAC_1_PI;
 
 /// 2 / PI (f32)
-pub const FRAC_2_PI_F32: f32 = 0.636619772367581343076_f32;
+pub const FRAC_2_PI_F32: f32 = core::f32::consts::FRAC_2_PI;
 
 /// 2 / sqrt(PI) (f32)
-pub const FRAC_2_SQRT_PI_F32: f32 = 1.12837916709551257390_f32;
+pub const FRAC_2_SQRT_PI_F32: f32 = core::f32::consts::FRAC_2_SQRT_PI;
 
 /// sqrt(2) (f32)
-pub const SQRT_2_F32: f32 = 1.41421356237309504880_f32;
+pub const SQRT_2_F32: f32 = core::f32::consts::SQRT_2;
 
 /// 1 / sqrt(2) (f32)
-pub const FRAC_1_SQRT_2_F32: f32 = 0.707106781186547524401_f32;
+pub const FRAC_1_SQRT_2_F32: f32 = core::f32::consts::FRAC_1_SQRT_2;
 
 /// e (f32)
-pub const E_F32: f32 = 2.71828182845904523536_f32;
+pub const E_F32: f32 = core::f32::consts::E;
 
 /// log2(e) (f32)
-pub const LOG2_E_F32: f32 = 1.44269504088896340736_f32;
+pub const LOG2_E_F32: f32 = core::f32::consts::LOG2_E;
 
 /// log10(e) (f32)
-pub const LOG10_E_F32: f32 = 0.434294481903251827651_f32;
+pub const LOG10_E_F32: f32 = core::f32::consts::LOG10_E;
 
 /// ln(2) (f32)
-pub const LN_2_F32: f32 = 0.693147180559945309417_f32;
+pub const LN_2_F32: f32 = core::f32::consts::LN_2;
 
 /// ln(10) (f32)
-pub const LN_10_F32: f32 = 2.30258509299404568402_f32;
+pub const LN_10_F32: f32 = core::f32::consts::LN_10;
